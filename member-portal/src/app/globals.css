@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --primary: #FF3B3F;
+  --secondary: #22C55E;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)];
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.glass {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.neon-border {
+  border: 1px solid rgba(255, 59, 63, 0.2);
+  box-shadow: 0 0 20px rgba(255, 59, 63, 0.05);
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Hide Clerk Development Mode Custom Watermark */
+.cl-internal-b3al4j,
+.cl-internal-1hp5nqm,
+.cl-internal-6rtz3t,
+.cl-internal-xk1h8k,
+.cl-internal-1x6o5os,
+a.cl-internal-1m03pky,
+div:has(> a[href^="https://clerk.com?utm_source="]) {
+  display: none !important;
+}
